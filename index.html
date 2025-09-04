@@ -1,0 +1,224 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>WOLSTAT — Сбор данных и аналитика служений | Церковь Слово Жизни, Великий Новгород</title>
+
+  <meta name="description" content="WOLSTAT — внутренний ресурс для служителей церкви Слово Жизни (Великий Новгород). Удобный сбор данных о домашних группах, молодежных собраниях и проектах для последующей аналитики и стратегического планирования.">
+  <meta name="keywords" content="WOLSTAT, Слово Жизни Великий Новгород, статистика церкви, аналитика служений, домашние группы, молодежные собрания, евангелизация, проекты церкви">
+
+  <!-- Favicon -->
+  <link rel="icon" href="https://wolstat.ru/img/favicon.ico" type="image/x-icon">
+  <link rel="shortcut icon" href="https://wolstat.ru/img/favicon.ico" type="image/x-icon">
+  <link rel="icon" href="https://wolstat.ru/img/favicon.svg" type="image/svg+xml">
+  <link rel="icon" type="image/png" sizes="32x32" href="https://wolstat.ru/img/favicon.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://wolstat.ru/img/favicon.png">
+  <link rel="apple-touch-icon" href="https://wolstat.ru/img/favicon.png">
+
+  <!-- Open Graph -->
+  <meta property="og:title" content="WOLSTAT — Аналитика и стратегия служений | Церковь Слово Жизни, Великий Новгород">
+  <meta property="og:description" content="Закрытый сайт для служителей церкви Слово Жизни. Единый инструмент для ввода данных о служениях, мероприятиях и проектах с последующим анализом и формированием стратегии.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://wolstat.ru/">
+  <meta property="og:image" content="https://wolstat.ru/img/og_preview.jpg">
+  <meta property="og:image:alt" content="WOLSTAT | Церковь Слово Жизни, Великий Новгород">
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="WOLSTAT — Сбор данных и аналитика служений">
+  <meta name="twitter:description" content="Инструмент для служителей церкви Слово Жизни. Сбор данных о домашних группах, молодежных собраниях и проектах для анализа и стратегии.">
+  <meta name="twitter:image" content="https://wolstat.ru/img/og_preview.jpg">
+
+  <!-- Fonts & Styles -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" rel="stylesheet">
+  <link rel="stylesheet" type="text/css" href="css/main.css">
+
+
+</head>
+
+
+
+
+
+<body>
+<header data-aos="fade-down">
+  <h1>WOLSTAT — сбор данных и аналитика служений церкви Слово Жизни в Великом Новгороде</h1>
+</header>
+
+<div class="container">
+
+  <section class="program-section" data-aos="fade-right">
+    <h2>О проекте</h2>
+    <p>
+      WOLSTAT — это внутренний инструмент для служителей церкви Слово Жизни в Великом Новгороде. 
+      Здесь собираются данные о домашних группах, молодежных и общецерковных собраниях, евангелизационных и других проектах. 
+    </p>
+    <p>
+      Система помогает фиксировать информацию, анализировать служения и вырабатывать стратегию для дальнейшего развития церкви. 
+      <br>
+      <strong>Цель — укрепление команды и эффективность служения.</strong>
+    </p>
+  </section>
+
+
+<section class="program-section verses" data-aos="fade-up">
+  <h2>Библейское основание</h2>
+  <div class="verse-block">
+    <blockquote>
+      «Ибо кто из вас, желая построить башню, не сядет прежде и не вычислит издержек, 
+      имеет ли он, что нужно для совершения?» 
+      <footer>— Луки 14:28</footer>
+    </blockquote>
+    <p>
+      Планирование — это не человеческая выдумка, а библейский принцип. 
+      Господь призывает нас мудро рассчитывать силы и ресурсы, чтобы успешно завершать начатое.
+    </p>
+  </div>
+
+  <div class="verse-block">
+    <blockquote>
+      «Без совета предприятия расстроятся, а при множестве советников они состоятся.» 
+      <footer>— Притчи 15:22</footer>
+    </blockquote>
+    <p>
+      Церковь — это команда. Мы сильны, когда действуем вместе, обсуждаем планы и ищем Божью мудрость сообща. 
+      Только так наши проекты становятся прочными и приносят плод.
+    </p>
+  </div>
+</section>
+
+
+
+
+  <a href="#add-data-form" class="fill-data-button">Заполнить данные</a>
+
+   
+
+  </div>
+
+ 
+
+
+
+
+
+
+
+
+<!-- Форма заявки -->
+<div class="popup__bg_wolstat">
+  <form action="#" class="popup_wolstat scrollable-form" id="contactForm" name="submit-to-google-sheet">
+    <h4 style="color: white;">Подать заявку</h4>
+
+    <img src="img/close.svg" class="close-popup_wolstat" alt="Закрыть">
+
+    <!-- First Name -->
+    <label>
+      <input id="firstName" type="text" name="first-name" required />
+      <div class="label__text">Ваше имя *</div>
+    </label>
+
+    <!-- Last Name -->
+    <label>
+      <input id="lastName" type="text" name="last-name" required />
+      <div class="label__text">Ваша фамилия *</div>
+    </label>
+
+    <!-- Phone -->
+    <label>
+      <input id="phone" type="tel" name="phone" required />
+      <div class="label__text">Номер телефона *</div>
+    </label>
+
+    <!-- City -->
+    <label>
+      <input id="city" type="text" name="city" required />
+      <div class="label__text">Город проживания *</div>
+    </label>
+
+    <!-- Church -->
+    <label>
+      <input id="church" type="text" name="church" required />
+      <div class="label__text">Церковь (название)</div>
+    </label>
+
+    <!-- Consent -->
+   <label id="check" class="checkbox-label">
+  <input type="checkbox" name="consent" required />
+  <span>Я соглашаюсь на обработку персональных данных *</span>
+</label>
+
+
+  <div class="privacy_policy">
+  Нажимая «ОТПРАВИТЬ», вы соглашаетесь на обработку персональных данных, а также с 
+  <a href="privacy.html" target="_blank"><u>Политикой конфиденциальности</u></a>
+</div>
+
+<!-- Кнопка отправки -->
+<button type="submit" id="sendButton_wolstat" class="submit-btn">
+  ОТПРАВИТЬ
+</button>
+  </form>
+</div>
+
+
+
+
+
+<!-- Pop-up для успешной регистрации -->
+<div style="z-index:999999;" class="mainreg-popup-notification" id="mainregSuccessPopup">
+  <div class="mainreg-popup-content">
+    <p>Ваша заявка успешно отправлена! ✅<br><br>
+    Мы свяжемся с вами в ближайшее время после рассмотрения запроса. 📧✨</p>
+    <button class="mainreg-popup-close-btn" id="closeMainregSuccessPopup">Закрыть</button>
+  </div>
+</div>
+
+<!-- Pop-up для ошибки -->
+<div style="z-index:999999;" class="mainreg-popup-notification" id="mainregErrorPopup">
+  <div class="mainreg-popup-content">
+    <p>Слабое интернет-соединение ⚠️📶. Пожалуйста, попробуйте позже ⏳🔄</p>
+    <button class="mainreg-popup-close-btn" id="closeMainregErrorPopup">Закрыть</button>
+  </div>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+<footer>
+  <p>
+    © WOLSTAT — церковь «Слово Жизни», Великий Новгород, 2025
+  </p>
+  <p style="font-size:0.75rem; margin-top:0.3rem;">
+    <a href="https://wolstat.ru/privacy-policy" target="_blank" rel="noopener" style="color:#999;">Политика конфиденциальности</a>
+  </p>
+</footer>
+
+
+
+
+
+
+
+<!-- Вертикальная кнопка "Подать заявку" -->
+<a href="#contact-form" class="apply-button open-popup_wolstat">Заполнить данные</a>
+
+
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+<script src="js/jquery-371min.js"></script>
+<script src="js/jquerymaskedinputmin.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
+</body>
+</html>
