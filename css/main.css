@@ -1122,8 +1122,8 @@ button, a, .accordion-toggle, .open-popup_wolstat {
 
 
 .fill-data-button {
-  display: block; /* делаем блочной для центрирования */
-  margin: 2rem auto; /* авто-смещение слева и справа */
+  display: block; 
+  margin: 2rem auto; 
   background: #d73b3b;
   color: white;
   font-weight: 700;
@@ -1153,10 +1153,45 @@ button, a, .accordion-toggle, .open-popup_wolstat {
 
 
 
+.date-container {
+  position: relative;
+  display: block;
+  width: 100%;
+}
 
+.date-container input[type="date"] {
+  width: 100%;
+  padding-right: 40px; /* место для иконки */
+  box-sizing: border-box;
+}
 
+.date-container .calendar-icon {
+  position: absolute;
+  right: 10px;
+  top: 68%;
+  transform: translateY(-50%);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
 
+.date-container .calendar-icon img {
+  width: 20px;
+  height: 20px;
+  pointer-events: none; /* клик идёт на span, а не на img */
+}
 
+/* Скрываем стандартную стрелку/иконку календаря */
+input[type="date"]::-webkit-calendar-picker-indicator {
+  opacity: 0;
+  display: block; /* или none */
+  pointer-events: none; /* чтобы не мешала клику */
+}
+
+/* Для Firefox */
+input[type="date"]::-moz-calendar-picker-indicator {
+  display: none;
+}
 
 
 

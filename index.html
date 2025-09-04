@@ -103,66 +103,157 @@
 
 
 
-
-
-
-
-
-<!-- Форма заявки -->
+<!-- === Форма WOLSTAT === -->
 <div class="popup__bg_wolstat">
   <form action="#" class="popup_wolstat scrollable-form" id="contactForm" name="submit-to-google-sheet">
-    <h4 style="color: white;">Подать заявку</h4>
-
+    <h4 style="color: white;">Заполнение данных</h4>
     <img src="img/close.svg" class="close-popup_wolstat" alt="Закрыть">
 
-    <!-- First Name -->
+    <!-- Выбор мероприятия -->
     <label>
-      <input id="firstName" type="text" name="first-name" required />
-      <div class="label__text">Ваше имя *</div>
+      <select id="eventType" name="eventType" required>
+        <option value="">Выберите тип мероприятия</option>
+        <option value="homegroup">Домашняя группа</option>
+        <option value="youth">Молодёжное собрание</option>
+        <option value="church">Общецерковное собрание</option>
+        <option value="evangelism">Евангелизационный проект</option>
+        <option value="informal">Неформальное мероприятие</option>
+        <option value="youthteam">Молодёжная лидерская команда</option>
+        <option value="churchteam">Общецерковная команда служителей</option>
+        <option value="outreach">Евангелизационный выход</option>
+      </select>
+      <div class="label__text">Характер мероприятия *</div>
     </label>
 
-    <!-- Last Name -->
-    <label>
-      <input id="lastName" type="text" name="last-name" required />
-      <div class="label__text">Ваша фамилия *</div>
-    </label>
+    <!-- === Домашняя группа === -->
+    <div class="event-block" id="event-homegroup">
+      <label><input type="text" name="which_homegroup"><div class="label__text">Какая домашняя группа</div></label>
+      <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
+      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
+      <label><textarea name="names"></textarea><div class="label__text">Имена людей</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходят)</div></label>
+      <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
+      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
+      <label><textarea name="repentanceNames"></textarea><div class="label__text">Имена покаявшихся</div></label>
+    </div>
 
-    <!-- Phone -->
-    <label>
-      <input id="phone" type="tel" name="phone" required />
-      <div class="label__text">Номер телефона *</div>
-    </label>
+    <!-- === Молодёжное собрание === -->
+    <div class="event-block" id="event-youth">
+      <label><input type="text" name="preacher"><div class="label__text">Проповедующий</div></label>
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
+      <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходят)</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
+    </div>
 
-    <!-- City -->
-    <label>
-      <input id="city" type="text" name="city" required />
-      <div class="label__text">Город проживания *</div>
-    </label>
+    <!-- === Общецерковное собрание === -->
+    <div class="event-block" id="event-church">
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="preacher"><div class="label__text">Проповедующий</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
+      <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходят)</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
+    </div>
 
-    <!-- Church -->
-    <label>
-      <input id="church" type="text" name="church" required />
-      <div class="label__text">Церковь (название)</div>
-    </label>
+    <!-- === Евангелизационный проект === -->
+    <div class="event-block" id="event-evangelism">
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="projectName"><div class="label__text">Название проекта</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
+      <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
+      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
+      <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходят)</div></label>
+    </div>
 
-    <!-- Consent -->
-   <label id="check" class="checkbox-label">
-  <input type="checkbox" name="consent" required />
-  <span>Я соглашаюсь на обработку персональных данных *</span>
-</label>
+    <!-- === Неформальное мероприятие === -->
+    <div class="event-block" id="event-informal">
+      <label><input type="text" name="eventName"><div class="label__text">Название мероприятия</div></label>
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
+      <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходят)</div></label>
+    </div>
 
+    <!-- === Молодёжная лидерская команда === -->
+    <div class="event-block" id="event-youthteam">
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
+      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><textarea name="participants"></textarea><div class="label__text">Имена участников</div></label>
+    </div>
 
-  <div class="privacy_policy">
-  Нажимая «ОТПРАВИТЬ», вы соглашаетесь на обработку персональных данных, а также с 
-  <a href="privacy.html" target="_blank"><u>Политикой конфиденциальности</u></a>
-</div>
+    <!-- === Общецерковная команда служителей === -->
+    <div class="event-block" id="event-churchteam">
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
+      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
+      <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
+      <label><textarea name="participants"></textarea><div class="label__text">Имена участников</div></label>
+    </div>
 
-<!-- Кнопка отправки -->
-<button type="submit" id="sendButton_wolstat" class="submit-btn">
-  ОТПРАВИТЬ
-</button>
+    <!-- === Евангелизационный выход === -->
+    <div class="event-block" id="event-outreach">
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
+      <label><input type="text" name="projectName"><div class="label__text">Название проекта / выхода</div></label>
+      <label><input type="number" name="servants"><div class="label__text">Служителей вышло</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
+      <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
+    </div>
+
+    <!-- Политика и кнопка -->
+    <div class="privacy_policy">
+      Нажимая «Отправить», вы соглашаетесь с
+      <a href="privacy.html" target="_blank"><u>Политикой конфиденциальности</u></a>
+    </div>
+    <button type="submit" id="sendButton_wolstat" class="submit-btn">Отправить</button>
   </form>
 </div>
+
+
+
+
+
+<!-- === JS для переключения блоков === -->
+<script>
+  const eventSelect = document.getElementById("eventType");
+  const eventBlocks = document.querySelectorAll(".event-block");
+
+  function hideAllBlocks() {
+    eventBlocks.forEach(block => block.style.display = "none");
+  }
+
+  eventSelect.addEventListener("change", function() {
+    hideAllBlocks();
+    const selected = this.value;
+    if (selected) {
+      const block = document.getElementById("event-" + selected);
+      if (block) block.style.display = "block";
+    }
+  });
+
+  // При загрузке скрываем все
+  hideAllBlocks();
+</script>
+
+
 
 
 
