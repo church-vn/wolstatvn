@@ -24,7 +24,7 @@
     }
 
 /*header {
-    background: radial-gradient(ellipse at top left, #d73b3b 0%, #9e0000 60%, #4d0000 100%);
+    background: radial-gradient(ellipse at top left, #7B3FBF 0%, #4B1B7B 60%, #2E0E4B 100%);
     color: white;
     padding: 4rem 1rem 3rem;
     text-align: center;
@@ -36,7 +36,7 @@
 
   header {
     background: 
-    linear-gradient(rgba(215, 59, 59, 0.8), rgba(77, 0, 0, 0.85)), 
+    linear-gradient(rgba(123, 63, 191, 0.8), rgba(46, 14, 75, 0.85)),
     url('../img/header_background.jpg') center/cover no-repeat;
     color: white;
     padding: 7rem 1rem 7rem; /* увеличил высоту */
@@ -77,11 +77,11 @@
         box-shadow: 0 0px 20px rgba(0,0,0,0.2);
     }
 
-    h2 { color: #d73b3b; margin-bottom: 1rem; }
+    h2 { color: #7B3FBF; margin-bottom: 1rem; }
     ul { padding-left: 1.2rem; }
     .highlight {
         background: #ffe7e7;
-        border-left: 5px solid #d73b3b;
+        border-left: 5px solid #7B3FBF;
         padding: 1rem;
         border-radius: 0.5rem;
         margin-top: 1rem;
@@ -99,14 +99,14 @@
         padding: 1.2rem;
         box-shadow: 0 4px 12px rgba(0,0,0,0.3);
     }
-    .card i { color: #d73b3b; margin-right: 0.5rem; }
+    .card i { color: #7B3FBF; margin-right: 0.5rem; }
 
     .accordion-toggle {
         display: flex;
         justify-content: space-between;
         align-items: center;
         width: 100%;
-        background: #d73b3b;
+        background: #7B3FBF;
         color: white;
         padding: 1rem 1.5rem;
         font-size: 1.05rem;
@@ -159,7 +159,7 @@
         padding: 2rem;
     }
     @media screen and (max-width: 768px) { footer { color: #777; } }
-    footer a { color: #d73b3b; text-decoration: none; }
+    footer a { color: #7B3FBF; text-decoration: none; }
 
     .accordion-content img {
         max-width: 100%;
@@ -235,7 +235,7 @@
 }
 
 .chat-toggle {
-  background: #d73b3b;
+  background: #7B3FBF;
   color: white;
   border: none;
   width: 55px;
@@ -267,7 +267,7 @@
 
 .chat-contacts a {
   background: white;
-  color: #d73b3b;
+  color: #7B3FBF;
   border-radius: 50%;
   width: 45px;
   height: 45px;
@@ -298,7 +298,7 @@
   top: 50%;
   right: 0;
   transform: translateY(-60%);
-  background: #d73b3b;
+  background: #7B3FBF;
   color: white;
   padding: 12px 8px;
   border-radius: 8px 0 0 8px;
@@ -313,7 +313,7 @@
 }
 
 .apply-button:hover {
-  background: #a80000;
+  background: #5A2D91;
   transform: translateY(-60%) scale(1.02);
 }
 
@@ -441,7 +441,7 @@
 }
 
 .radio-option input[type="radio"] {
-  accent-color: #d73b3b;
+  accent-color: #7B3FBF;
   width: 16px;
   height: 16px;
   cursor: pointer;
@@ -452,18 +452,18 @@
 }
 
 .popup_wolstat input:focus {
-    border: 1px solid #d73b3b;
-    box-shadow: 0 0 10px #d73b3b;
+    border: 1px solid #7B3FBF;
+    box-shadow: 0 0 10px #7B3FBF;
     background: transparent;
     transition: 0.5s all;
 }
 
 .popup_wolstat input:focus + .label__text {
-    color: #d73b3b;
+    color: #7B3FBF;
 }
 
 .popup_wolstat input:focus + .calendar-icon {
-/*  filter: drop-shadow(1px 1px 1px #d73b3b);*/
+/*  filter: drop-shadow(1px 1px 1px #7B3FBF);*/
 }
 
 .popup_wolstat textarea {
@@ -480,15 +480,15 @@
 }
 
 .popup_wolstat textarea:focus {
-    border-bottom: 1px solid #d73b3b;
-    border: 1px solid #d73b3b;
-    box-shadow: 0 0 10px #d73b3b;
+    border-bottom: 1px solid #7B3FBF;
+    border: 1px solid #7B3FBF;
+    box-shadow: 0 0 10px #7B3FBF;
     background: transparent;
     transition: 0.5s all;
 }
 
 .popup_wolstat textarea:focus + .label__text {
-    color: #d73b3b;
+    color: #7B3FBF;
 }
 
 .popup_wolstat button {
@@ -499,7 +499,7 @@
     justify-content: center;
     color: #000000;
     font-size: 14px;
-    background: #d73b3b;
+    background: #7B3FBF;
     cursor: pointer;
     transition: 0.5s all;
     line-height: 1.75em;
@@ -509,7 +509,7 @@
 }
 
 .popup_wolstat button:hover {
-    background: #b92f2f;
+    background: #5A2D91;
     color: #fff;
     transition: 0.5s all;
 }
@@ -599,7 +599,7 @@ div.privacy_policy {
   right: 10px;
   top: 67%;
   transform: translateY(-50%);
-  color: #d73b3b;
+  color: #7B3FBF;
   cursor: pointer;
 }
 
@@ -640,7 +640,7 @@ body.lock-scroll {
 }
 
 .popup-close-btn {
-  background-color: #d73b3b;
+  background-color: #7B3FBF;
   color: white;
   border: none;
   padding: 10px;
@@ -650,7 +650,7 @@ body.lock-scroll {
 }
 
 .popup-close-btn:hover {
-  background-color: #b92f2f;
+  background-color: #5A2D91;
 }
 
 /* Стили для уведомления (mainreg pop-up) */
@@ -675,7 +675,7 @@ body.lock-scroll {
 }
 
 .mainreg-popup-close-btn {
-  background-color: #d73b3b;
+  background-color: #7B3FBF;
   color: white;
   border: none;
   padding: 10px;
@@ -685,7 +685,7 @@ body.lock-scroll {
 }
 
 .mainreg-popup-close-btn:hover {
-  background-color: #b92f2f;
+  background-color: #5A2D91;
 }
 
 /* Стили для select */
@@ -710,8 +710,8 @@ body.lock-scroll {
 }
 
 .popup_wolstat select:focus {
-  border: 1px solid #d73b3b;
-  box-shadow: 0 0 10px #d73b3b;
+  border: 1px solid #7B3FBF;
+  box-shadow: 0 0 10px #7B3FBF;
   transition: 0.5s all;
 }
 
@@ -722,7 +722,7 @@ body.lock-scroll {
 }
 
 .popup_wolstat select option:hover {
-  background-color: #b92f2f;
+  background-color: #5A2D91;
   color: #fff;
 }
 
@@ -777,29 +777,29 @@ body.lock-scroll {
 }
 
 .section_shadow {
-  box-shadow: 0px 0px 10px rgba(215, 59, 59, 0.6);
+  box-shadow: 0px 0px 10px rgba(123, 63, 191, 0.6);
   animation: glow 3s ease-in-out infinite;
 }
 
 .section_shadow_top {
-  box-shadow: 0px 0px 10px rgba(215, 59, 59, 0.6);
+  box-shadow: 0px 0px 10px rgba(123, 63, 191, 0.6);
   animation: glow 3s ease-in-out infinite;
 }
 
 /* Подсветка активного details */
 details[open] {
-  box-shadow: 0px 0px 10px rgba(215, 59, 59, 0.6);
+  box-shadow: 0px 0px 10px rgba(123, 63, 191, 0.6);
   animation: glow 3s ease-in-out infinite;
 }
 
 /* carousel reviews bullets dots */
 .swiper-pagination-bullet {
-  background-color: rgba(215, 59, 59, 0.3);
+  background-color: rgba(123, 63, 191, 0.3);
   opacity: 1;
 }
 
 .swiper-pagination-bullet-active {
-  background-color: #d73b3b;
+  background-color: #7B3FBF;
 }
 
 /* кнопка связи в углу */
@@ -809,12 +809,12 @@ details[open] {
   right: 24px;
   width: 60px;
   height: 60px;
-  background: linear-gradient(135deg, #d73b3b, #b92f2f);
+  background: linear-gradient(135deg, #7B3FBF, #5A2D91);
   border-radius: 50%;
   display: flex;
   align-items: center;
   justify-content: center;
-  box-shadow: 0 8px 20px rgba(215, 59, 59, 0.4);
+  box-shadow: 0 8px 20px rgba(123, 63, 191, 0.4);
   text-decoration: none;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
   z-index: 9999;
@@ -823,7 +823,7 @@ details[open] {
 
 .charge-button:hover {
   transform: scale(1.1);
-  box-shadow: 0 10px 24px rgba(215, 59, 59, 0.6);
+  box-shadow: 0 10px 24px rgba(123, 63, 191, 0.6);
 }
 
 .charge-icon {
@@ -834,7 +834,7 @@ details[open] {
 @keyframes pulse {
   0% {
     transform: scale(1);
-    box-shadow: 0 0 0 0 rgba(215, 59, 59, 0.5);
+    box-shadow: 0 0 0 0 rgba(123, 63, 191, 0.5);
   }
   70% {
     transform: scale(1.05);
@@ -850,19 +850,19 @@ details[open] {
 .back-button {
   display: inline-block;
   margin-bottom: 30px;
-  background-color: #d73b3b;
+  background-color: #7B3FBF;
   color: white;
   padding: 10px 18px;
   border-radius: 30px;
   text-decoration: none;
   font-weight: 600;
   font-size: 14px;
-  box-shadow: 0 4px 12px rgba(215, 59, 59, 0.3);
+  box-shadow: 0 4px 12px rgba(123, 63, 191, 0.3);
   transition: background-color 0.2s ease;
 }
 
 .back-button:hover {
-  background-color: #b92f2f;
+  background-color: #5A2D91;
 }
 
 /* navbar исчезает появляется */
@@ -887,12 +887,12 @@ header.show {
 }
 
 .privacy_policy a {
-  color: #d73b3b;
+  color: #7B3FBF;
   text-decoration: underline;
 }
 
 .privacy_policy a:hover {
-  color: #b92f2f;
+  color: #5A2D91;
 }
 
 .submit-btn {
@@ -903,7 +903,7 @@ header.show {
   justify-content: center;
   color: #fff;
   font-size: 14px;
-  background: #d73b3b;
+  background: #7B3FBF;
   cursor: pointer;
   transition: 0.3s ease;
   line-height: 1.5;
@@ -915,7 +915,7 @@ header.show {
 }
 
 .submit-btn:hover {
-  background: #b92f2f;
+  background: #5A2D91;
 }
 
 
@@ -948,8 +948,8 @@ label#check input[type="checkbox"] {
 }
 
 .checkbox-label input[type="checkbox"]:checked {
-  background-color: #d73b3b;
-  border-color: #d73b3b;
+  background-color: #7B3FBF;
+  border-color: #7B3FBF;
 }
 
 .checkbox-label input[type="checkbox"]:checked::after {
@@ -964,7 +964,7 @@ label#check input[type="checkbox"] {
 
 /* Подсветка при наведении */
 .checkbox-label input[type="checkbox"]:hover {
-  box-shadow: 0 0 4px rgba(215, 59, 59, 0.6);
+  box-shadow: 0 0 4px rgba(123, 63, 191, 0.6);
 }
 
 
@@ -996,7 +996,7 @@ label#check input[type="checkbox"] {
 
 
 .button_wolstat {
-  background: linear-gradient(135deg, #d73b3b, #b92f2f);
+  background: linear-gradient(135deg, #7B3FBF, #5A2D91);
   color: #fff;
   border: none;
   padding: 12px 22px;
@@ -1006,14 +1006,14 @@ label#check input[type="checkbox"] {
   font-size: 15px;
   font-weight: 600;
   letter-spacing: 1px;
-  box-shadow: 0 4px 12px rgba(215, 59, 59, 0.3);
+  box-shadow: 0 4px 12px rgba(123, 63, 191, 0.3);
   transition: transform 0.2s ease, background 0.3s ease, box-shadow 0.3s ease;
 }
 
 .button_wolstat:hover {
-  background: linear-gradient(135deg, #b92f2f, #8b1a1a);
+  background: linear-gradient(135deg, #5A2D91, #8b1a1a);
   transform: scale(1.05);
-  box-shadow: 0 6px 16px rgba(215, 59, 59, 0.5);
+  box-shadow: 0 6px 16px rgba(123, 63, 191, 0.5);
 }
 
 
@@ -1047,14 +1047,14 @@ button, a, .accordion-toggle, .open-popup_wolstat {
   font-weight: 700;
   text-align: center;
   margin-bottom: 1.5rem;
-  color: #d73b3b;
+  color: #7B3FBF;
 }
 
 .verse-block {
   margin-bottom: 1.5rem;
   padding: 1rem 1.2rem;
   background: #fff;
-  border-left: 5px solid #d73b3b;
+  border-left: 5px solid #7B3FBF;
   border-radius: 0.5rem;
   box-shadow: 0 5px 10px rgba(0,0,0,0.2);
 }
@@ -1124,7 +1124,7 @@ button, a, .accordion-toggle, .open-popup_wolstat {
 .fill-data-button {
   display: block; 
   margin: 2rem auto; 
-  background: #d73b3b;
+  background: #7B3FBF;
   color: white;
   font-weight: 700;
   font-size: 1.3rem;
@@ -1137,7 +1137,7 @@ button, a, .accordion-toggle, .open-popup_wolstat {
 }
 
 .fill-data-button:hover {
-  background: #ff4f4f;
+  background: #A076D1;
   transform: translateY(-2px);
   box-shadow: 0 8px 18px rgba(0,0,0,0.3);
 }
