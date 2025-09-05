@@ -293,9 +293,8 @@
 
 
 
-
 <script>
-  let members = [];
+let members = [];
 
 fetch("peoples.json")
   .then(response => response.json())
@@ -309,15 +308,18 @@ function attachAutocomplete(input) {
   input.parentNode.appendChild(suggestions);
 
   function renderList(filterValue) {
-    suggestions.innerHTML = "";
-    let filtered = members;
-
-    if (filterValue) {
-      filtered = members.filter(name =>
-        name.toLowerCase().includes(filterValue)
-      );
+    // если пусто — очищаем список и выходим
+    if (!filterValue) {
+      suggestions.innerHTML = "";
+      return;
     }
 
+    // фильтруем members по введённому значению
+    const filtered = members.filter(name =>
+      name.toLowerCase().includes(filterValue)
+    );
+
+    suggestions.innerHTML = "";
     filtered.forEach(name => {
       const li = document.createElement("li");
       li.textContent = name;
@@ -349,8 +351,8 @@ function attachAutocomplete(input) {
 document.querySelectorAll(".name-input").forEach(input => {
   attachAutocomplete(input);
 });
-
 </script>
+
 
 
 
