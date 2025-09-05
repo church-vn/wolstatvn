@@ -354,7 +354,36 @@ document.querySelectorAll(".name-input").forEach(input => {
 </script>
 
 
+<script>
+  function positionSuggestions(input, suggestions) {
+  const rect = input.getBoundingClientRect();
+  const viewportHeight = window.innerHeight;
+  const maxHeight = 200; // максимальная высота списка
 
+  // Проверяем, сколько места снизу и сверху от поля
+  const spaceBelow = viewportHeight - rect.bottom;
+  const spaceAbove = rect.top;
+
+  if (spaceBelow < maxHeight && spaceAbove > spaceBelow) {
+    // Показываем список над полем
+    suggestions.style.top = "auto";
+    suggestions.style.bottom = (viewportHeight - rect.top) + "px";
+  } else {
+    // Показываем список под полем
+    suggestions.style.top = rect.bottom + "px";
+    suggestions.style.bottom = "auto";
+  }
+
+  // Подгоняем по горизонтали и ширине поля
+  suggestions.style.left = rect.left + "px";
+  suggestions.style.width = rect.width + "px";
+
+  // Список всегда поверх других элементов
+  suggestions.style.position = "absolute";
+  suggestions.style.zIndex = 1000;
+}
+
+</script>
 
 
 
