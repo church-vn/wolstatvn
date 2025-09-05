@@ -1210,6 +1210,8 @@ input[type="date"]::-moz-calendar-picker-indicator {
   font-family: "Inter", sans-serif;
   font-size: 14px;
   animation: fadeIn 0.15s ease-in-out;
+  z-index: 1000;
+  border: none !important;
 }
 
 .suggestions li {
