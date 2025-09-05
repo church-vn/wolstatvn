@@ -337,11 +337,6 @@ function attachAutocomplete(input) {
     renderList(value);
   });
 
-  // при фокусе — показываем весь список
-  input.addEventListener("focus", () => {
-    if (!input.value.trim()) renderList("");
-  });
-
   // закрываем список при клике вне
   document.addEventListener("click", (e) => {
     if (!input.contains(e.target) && !suggestions.contains(e.target)) {
