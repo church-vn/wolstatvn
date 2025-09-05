@@ -288,7 +288,6 @@
     }
   });
 
-  // При загрузке скрываем все
   hideAllBlocks();
 </script>
 
@@ -298,43 +297,64 @@
 <script>
   let members = [];
 
-  // Загружаем список из peoples.json
-  fetch("peoples.json")
-    .then(response => response.json())
-    .then(data => { members = data; })
-    .catch(err => console.error("Ошибка загрузки peoples.json:", err));
+fetch("peoples.json")
+  .then(response => response.json())
+  .then(data => { members = data; })
+  .catch(err => console.error("Ошибка загрузки peoples.json:", err));
 
-  function attachAutocomplete(input) {
-    const suggestions = document.createElement("ul");
-    suggestions.className = "suggestions";
-    input.parentNode.appendChild(suggestions);
+function attachAutocomplete(input) {
+  const suggestions = document.createElement("ul");
+  suggestions.className = "suggestions";
+  input.parentNode.style.position = "relative";
+  input.parentNode.appendChild(suggestions);
 
-    input.addEventListener("input", () => {
-      const value = input.value.split(",").pop().trim().toLowerCase();
-      suggestions.innerHTML = "";
-      if (!value) return;
+  function renderList(filterValue) {
+    suggestions.innerHTML = "";
+    let filtered = members;
 
-      members
-        .filter(name => name.toLowerCase().includes(value))
-        .forEach(name => {
-          const li = document.createElement("li");
-          li.textContent = name;
-          li.onclick = () => {
-            const parts = input.value.split(",");
-            parts[parts.length - 1] = " " + name;
-            input.value = parts.join(",").trim() + ", ";
-            suggestions.innerHTML = "";
-            input.focus();
-          };
-          suggestions.appendChild(li);
-        });
+    if (filterValue) {
+      filtered = members.filter(name =>
+        name.toLowerCase().includes(filterValue)
+      );
+    }
+
+    filtered.forEach(name => {
+      const li = document.createElement("li");
+      li.textContent = name;
+      li.onclick = () => {
+        const parts = input.value.split(",");
+        parts[parts.length - 1] = " " + name;
+        input.value = parts.join(",").trim() + ", ";
+        suggestions.innerHTML = "";
+        input.focus();
+      };
+      suggestions.appendChild(li);
     });
   }
 
-  // навешиваем на все поля с именами
-  document.querySelectorAll(".name-input").forEach(input => {
-    attachAutocomplete(input);
+  input.addEventListener("input", () => {
+    const value = input.value.split(",").pop().trim().toLowerCase();
+    renderList(value);
   });
+
+  // при фокусе — показываем весь список
+  input.addEventListener("focus", () => {
+    if (!input.value.trim()) renderList("");
+  });
+
+  // закрываем список при клике вне
+  document.addEventListener("click", (e) => {
+    if (!input.contains(e.target) && !suggestions.contains(e.target)) {
+      suggestions.innerHTML = "";
+    }
+  });
+}
+
+// навешиваем на все поля с классом .name-input
+document.querySelectorAll(".name-input").forEach(input => {
+  attachAutocomplete(input);
+});
+
 </script>
 
 
