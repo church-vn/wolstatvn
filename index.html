@@ -294,6 +294,44 @@
 
 
 <script>
+  let members = [];
+
+  // Загружаем список из JSON
+  fetch("members.json")
+    .then(response => response.json())
+    .then(data => {
+      members = data;
+    })
+    .catch(err => console.error("Ошибка загрузки members.json:", err));
+
+  const input = document.getElementById("namesInput");
+  const suggestions = document.getElementById("suggestions");
+
+  input.addEventListener("input", () => {
+    const value = input.value.split(",").pop().trim().toLowerCase();
+    suggestions.innerHTML = "";
+    if (!value) return;
+
+    members
+      .filter(name => name.toLowerCase().includes(value))
+      .forEach(name => {
+        const li = document.createElement("li");
+        li.textContent = name;
+        li.onclick = () => {
+          const parts = input.value.split(",");
+          parts[parts.length - 1] = " " + name;
+          input.value = parts.join(",").trim() + ", "; // добавляем запятую
+          suggestions.innerHTML = "";
+          input.focus();
+        };
+        suggestions.appendChild(li);
+      });
+  });
+</script>
+
+
+<!-- 
+<script>
   const members = ["Андрей", "Анна", "Сергей", "Мария", "Иван", "Ольга"];
   const input = document.getElementById("namesInput");
   const suggestions = document.getElementById("suggestions");
@@ -320,7 +358,7 @@
   });
 </script>
 
-
+ -->
 
 
 
