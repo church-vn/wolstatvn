@@ -136,9 +136,9 @@
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
-      <label><textarea name="names"></textarea><div class="label__text">Имена людей</div></label>
+      <label><input type="text" id="namesInput" name="names"><div class="label__text">Имена людей, через запятую</div></label><ul id="suggestions" class="suggestions" style="border: none !important;"></ul>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, 2+ раз)</div></label>
+      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
       <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей через запятую</div></label>
       <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
@@ -154,7 +154,7 @@
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, 2+ раз)</div></label>
+      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
       <label><textarea name="repentanceNames"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
     </div>
@@ -168,7 +168,7 @@
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, 2+ раз)</div></label>
+      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
       <label><textarea name="repentanceNames"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
     </div>
@@ -192,7 +192,7 @@
       <label><textarea name="repentanceNames"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
       <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, 2+ раз)</div></label>
+      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="biblesGiven"><div class="label__text">Сколько людей взяли Библии</div></label>
       <label><input type="number" name="contactsTotal"><div class="label__text">Сколько контактов установлено</div></label>
       <label><input type="number" name="contactsShared"><div class="label__text">Поделились контактами / подписались</div></label>
@@ -225,7 +225,7 @@
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, 2+ раз)</div></label>
+      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
     </div>
 
     <!-- === Молодёжная лидерская команда === -->
@@ -293,6 +293,32 @@
 </script>
 
 
+<script>
+  const members = ["Андрей", "Анна", "Сергей", "Мария", "Иван", "Ольга"];
+  const input = document.getElementById("namesInput");
+  const suggestions = document.getElementById("suggestions");
+
+  input.addEventListener("input", () => {
+    const value = input.value.split(",").pop().trim().toLowerCase();
+    suggestions.innerHTML = "";
+    if (!value) return;
+
+    members
+      .filter(name => name.toLowerCase().includes(value))
+      .forEach(name => {
+        const li = document.createElement("li");
+        li.textContent = name;
+        li.onclick = () => {
+          const parts = input.value.split(",");
+          parts[parts.length - 1] = " " + name; 
+          input.value = parts.join(",").trim() + ", "; // <-- добавляем запятую и пробел
+          suggestions.innerHTML = "";
+          input.focus(); // курсор остаётся в поле
+        };
+        suggestions.appendChild(li);
+      });
+  });
+</script>
 
 
 

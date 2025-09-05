@@ -1197,5 +1197,81 @@ input[type="date"]::-moz-calendar-picker-indicator {
 
 
 
+.suggestions {
+  position: absolute;
+  background: #fff;
+  border: 1px solid #e0e0e0;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+  max-height: 200px;
+  overflow-y: auto;
+  margin-top: 4px;
+  padding: 4px 0;
+  list-style: none;
+  z-index: 1000;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+  animation: fadeIn 0.15s ease-in-out;
+}
+
+.suggestions li {
+  padding: 8px 12px;
+  cursor: pointer;
+  transition: background 0.15s ease, color 0.15s ease;
+  border-radius: 4px;
+}
+
+.suggestions li:hover {
+  background: #f5f7fa;
+  color: #007bff;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-4px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 /* aaa */
