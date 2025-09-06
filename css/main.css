@@ -1240,6 +1240,17 @@ input[type="date"]::-moz-calendar-picker-indicator {
 
 
 
+.form-hint {
+  display: block;
+  margin-top: 6px;
+  font-size: 12px;
+  line-height: 1.4;
+  color: #666;
+}
+.form-hint b {
+  color: #a80000; /* красный акцент */
+  font-weight: 600;
+}
 
 
 

@@ -123,26 +123,32 @@
         <option value="youthteam">Молодёжная лидерская команда</option>
         <option value="churchteam">Общецерковная команда служителей</option>
         <option value="outreach">Евангелизационный выход</option>
+        <option value="praise">Вечер хвалы</option>
       </select>
       <div class="label__text">Характер мероприятия *</div>
     </label>
 
+      <small class="form-hint">
+      ⚠️ Все поля обязательны для заполнения.<br>
+      Если значение отсутствует — укажите <b>0</b>, <b>—</b> или <b>«нет»</b>.
+      </small>
+
     <!-- === Домашняя группа === -->
     <div class="event-block" id="event-homegroup">
-      <label><input type="text" name="which_homegroup"><div class="label__text">Какая домашняя группа</div></label>
+      <label><input type="text" name="which_homegroup"><div class="label__text">Какая домашняя группа (напишите адрес)</div></label>
       <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
-      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label><input type="text" name="assistant" class="name-input"><div class="label__text">Помощник лидера</div></label>
       <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="text" name="names" class="name-input"><div class="label__text">Имена людей, через запятую</div></label>
-      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие, если нет, то поставьте 0)</div></label>
       <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
-      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей через запятую</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
+      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей (через запятую, если нет, то напишите "нет")</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество, если никто, то поставьте 0)</div></label>
+      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена тех, кто принял Христа (через запятую, если никто, то поставьте "нет")</div></label>
     </div>
 
     <!-- === Молодёжное собрание === -->
@@ -153,10 +159,10 @@
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
-      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие, если нет, то поставьте 0)</div></label>
       <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество, если никто, то поставьте 0)</div></label>
+      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена тех, кто принял Христа (через запятую, если никто, то поставьте "нет")</div></label>
     </div>
 
     <!-- === Общецерковное собрание === -->
@@ -167,10 +173,10 @@
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
-      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие, если нет, то поставьте 0)</div></label>
       <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество, если никто, то поставьте 0)</div></label>
+      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена тех, кто принял Христа (через запятую, если никто, то поставьте "нет")</div></label>
     </div>
 
     <!-- === Евангелизационный проект === -->
@@ -182,20 +188,19 @@
         </span>
         <div class="label__text">Дата</div>
       </label>
-      <label><input type="text" name="projectName"><div class="label__text">Название проекта</div></label>
+      <label><input type="text" name="projectName"><div class="label__text">Название проекта (собор, альфа и тд)</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (первый раз)</div></label>
-      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей через запятую</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
+      <label><textarea name="newNames"></textarea><div class="label__text">Имена новых людей (через запятую, если нет, то напишите "нет")</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество, если никто, то поставьте 0)</div></label>
+      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена тех, кто принял Христа (через запятую, если никто, то поставьте "нет")</div></label>
       <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
-      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
+      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие, если нет, то поставьте 0)</div></label>
       <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="biblesGiven"><div class="label__text">Сколько людей взяли Библии</div></label>
-      <label><input type="number" name="contactsTotal"><div class="label__text">Сколько контактов установлено</div></label>
-      <label><input type="number" name="contactsShared"><div class="label__text">Поделились контактами / подписались</div></label>
+      <label><input type="number" name="contactsShared"><div class="label__text">Подписались на канал</div></label>
     </div>
 
     <!-- === Евангелизационный выход === -->
@@ -209,12 +214,12 @@
       </label>
       <label><input type="text" name="projectName"><div class="label__text">Название проекта / выхода</div></label>
       <label><input type="number" name="servants"><div class="label__text">Служителей вышло</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена покаявшихся через запятую</div></label>
+      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество, если никто, то поставьте 0)</div></label>
+      <label><textarea name="repentanceNames" class="name-input"></textarea><div class="label__text">Имена тех, кто принял Христа (через запятую, если никто, то поставьте "нет")</div></label>
       <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
       <label><input type="number" name="biblesGiven"><div class="label__text">Сколько людей взяли Библии</div></label>
-      <label><input type="number" name="contactsTotal"><div class="label__text">Сколько контактов установлено</div></label>
-      <label><input type="number" name="contactsShared"><div class="label__text">Поделились контактами / подписались</div></label>
+      <label><input type="number" name="contactsTotal"><div class="label__text">Сколько контактов (люди, которые не прошли мимо проекта) установлено</div></label>
+      <label><input type="number" name="contactsShared"><div class="label__text">Подписались на канал</div></label>
     </div>
 
 
@@ -224,15 +229,14 @@
       <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
-      <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие)</div></label>
-      <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
+      <label><input type="number" name="contactsShared"><div class="label__text">Подписались на канал</div></label>
     </div>
 
     <!-- === Молодёжная лидерская команда === -->
     <div class="event-block" id="event-youthteam">
       <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
-      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label><input type="text" name="assistant" class="name-input"><div class="label__text">Помощник лидера</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><textarea name="participants" class="name-input"></textarea><div class="label__text">Имена участников</div></label>
@@ -242,20 +246,25 @@
     <div class="event-block" id="event-churchteam">
       <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
-      <label><input type="text" name="assistant"><div class="label__text">Помощник лидера</div></label>
+      <label><input type="text" name="assistant" class="name-input"><div class="label__text">Помощник лидера</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><textarea name="participants" class="name-input"></textarea><div class="label__text">Имена участников</div></label>
     </div>
 
-    <!-- === Евангелизационный выход === -->
-    <div class="event-block" id="event-outreach">
-      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
-      <label><input type="text" name="projectName"><div class="label__text">Название проекта / выхода</div></label>
-      <label><input type="number" name="servants"><div class="label__text">Служителей вышло</div></label>
-      <label><input type="number" name="repentances"><div class="label__text">Приняли Христа (количество)</div></label>
-      <label><input type="number" name="heardGospel"><div class="label__text">Услышали Евангелие</div></label>
+    <!-- === Вечер хвалы === -->
+    <div class="event-block" id="event-praise">
+      <label><input type="text" name="leader"><div class="label__text">Ведущий / Ответственный</div></label>
+      <label class="date-container">
+      <input type="date" name="date" class="event-date" required>
+      <span class="calendar-icon" onclick="this.previousElementSibling.showPicker()">
+        <img src="img/calendar.svg" alt="Календарь">
+      </span>
+      <div class="label__text">Дата</div>
+      </label>
+      <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
     </div>
+
 
     <!-- Политика и кнопка -->
     <div class="privacy_policy">
@@ -267,11 +276,45 @@
 </div>
 
 
+<!-- === JS для переключения блоков === -->
+<script>
+  const eventSelect = document.getElementById("eventType");
+  const eventBlocks = document.querySelectorAll(".event-block");
+
+  function hideAllBlocks() {
+    eventBlocks.forEach(block => {
+      block.style.display = "none";
+      // отключаем все поля внутри скрытого блока и убираем required
+      block.querySelectorAll("input, textarea, select").forEach(el => {
+        el.disabled = true;
+        el.removeAttribute("required");
+      });
+    });
+  }
+
+  eventSelect.addEventListener("change", function() {
+    hideAllBlocks();
+    const selected = this.value;
+    if (selected) {
+      const block = document.getElementById("event-" + selected);
+      if (block) {
+        block.style.display = "block";
+        // включаем поля и делаем обязательными
+        block.querySelectorAll("input, textarea, select").forEach(el => {
+          el.disabled = false;
+          el.setAttribute("required", "true");
+        });
+      }
+    }
+  });
+
+  hideAllBlocks();
+</script>
 
 
 
 <!-- === JS для переключения блоков === -->
-<script>
+<!-- <script>
   const eventSelect = document.getElementById("eventType");
   const eventBlocks = document.querySelectorAll(".event-block");
 
@@ -290,7 +333,7 @@
 
   hideAllBlocks();
 </script>
-
+ -->
 
 
 <script>
