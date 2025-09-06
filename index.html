@@ -313,29 +313,6 @@
 
 
 
-<!-- === JS для переключения блоков === -->
-<!-- <script>
-  const eventSelect = document.getElementById("eventType");
-  const eventBlocks = document.querySelectorAll(".event-block");
-
-  function hideAllBlocks() {
-    eventBlocks.forEach(block => block.style.display = "none");
-  }
-
-  eventSelect.addEventListener("change", function() {
-    hideAllBlocks();
-    const selected = this.value;
-    if (selected) {
-      const block = document.getElementById("event-" + selected);
-      if (block) block.style.display = "block";
-    }
-  });
-
-  hideAllBlocks();
-</script>
- -->
-
-
 <script>
 let members = [];
 
@@ -398,7 +375,51 @@ document.querySelectorAll(".name-input").forEach(input => {
 
 
 <script>
-  
+  // Функция: каждое слово с заглавной
+  function capitalizeEachWord(str) {
+    return str
+      .split(" ")
+      .filter(Boolean)
+      .map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase())
+      .join(" ");
+  }
+
+  // Функция: только первое слово с заглавной
+  function capitalizeFirstWord(str) {
+    if (!str) return "";
+    return str.charAt(0).toUpperCase() + str.slice(1);
+  }
+
+  // Поля с именами и фамилиями
+  const nameFields = [
+    "leader",
+    "assistant",
+    "preacher",
+    "names",
+    "newNames",
+    "repentanceNames",
+    "participants"
+  ];
+
+  document.querySelectorAll("input[type=text], textarea").forEach(input => {
+    input.addEventListener("blur", () => {
+      let value = input.value.trim();
+      if (!value) return;
+
+      if (nameFields.includes(input.name)) {
+        // Для полей с именами: каждое слово
+        value = value
+          .split(",")
+          .map(name => capitalizeEachWord(name.trim()))
+          .join(", ");
+      } else {
+        // Для остальных текстовых полей: только первая буква
+        value = capitalizeFirstWord(value);
+      }
+
+      input.value = value;
+    });
+  });
 </script>
 
 
@@ -454,7 +475,7 @@ document.querySelectorAll(".name-input").forEach(input => {
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
 <script src="js/jquery-371min.js"></script>
-<script src="js/jquerymaskedinputmin.js"></script>
+<!-- <script src="js/jquerymaskedinputmin.js"></script> -->
 <script type="text/javascript" src="js/main.js"></script>
 </body>
 </html>
