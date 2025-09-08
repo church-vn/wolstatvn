@@ -190,23 +190,16 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             });
     });
 
-     // --- Отправка в Google Sheets ---
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbxypHDT_tulLR8xWolwKwLEZ4___fDUUT8IleuJ3uN0v3i8RTOr4VvMkzyPc4my4NFNJw/exec';
-    fetch(scriptURL, {
-        method: 'POST',
-        body: JSON.stringify(formData),
-        headers: { 'Content-Type': 'application/json' }
-    })
-    .then(res => res.json())
-    .then(data => {
-        if (data.status === 'success') finalizeFormSubmit(true);
-        else finalizeFormSubmit(false);
-    })
-    .catch(err => {
-        console.error('Ошибка Google Script:', err);
-        finalizeFormSubmit(false);
-    });
+        // --- ПАРАЛЛЕЛЬНАЯ ОТПРАВКА В GOOGLE SHEETS ---
+    fetch("https://script.google.com/macros/s/AKfycby4niUfQ3OtOZ-5i_Dp5nxEKiriwfhGW0Sw8PQ6enO5SjCCmRB-3QgSEQhuFu5J3N4v/exec", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify(formData)
+    }).catch(err => console.warn("Ошибка отправки в Google Sheets", err));
+
 });
+
+
 
 // ========================
 // ФИНАЛИЗАЦИЯ ОТПРАВКИ
