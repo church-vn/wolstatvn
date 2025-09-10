@@ -135,14 +135,26 @@
 
     <!-- === Домашняя группа === -->
     <div class="event-block" id="event-homegroup">
-      <label><input type="text" name="which_homegroup"><div class="label__text">Какая домашняя группа (напишите адрес)</div></label>
-      <label><input type="text" name="leader"><div class="label__text">Лидер</div></label>
+      <label>
+        <select name="leader" required>
+          <option value="">Выберите лидера</option>
+          <option value="Носков Тимофей">Ответственный в церкви — Носков Тимофей</option>
+          <option value="Евсеева Вера">Ответственный в Панковке — Евсеева Вера</option>
+          <option value="Савинова Людмила">Ответственный Большая Московская — Савинова Людмила</option>
+          <option value="Тарасова Елена">Ответственный в западном районе — Тарасова Елена</option>
+          <option value="Барсук Ксения">Ответственный в Григорово (подростковая) — Барсук Ксения</option>
+          <option value="Цаплина Екатерина">Ответственный в церкви (подростковая) — Цаплина Екатерина</option>
+          <option value="Толстик Ольга">Ответственный (молодёжная) — Толстик Ольга</option>
+        </select>
+        <div class="label__text">Лидер</div>
+      </label>
+      <!-- <label><input type="text" name="which_homegroup"><div class="label__text">Какая домашняя группа (напишите адрес)</div></label> -->
       <label><input type="text" name="assistant" class="name-input"><div class="label__text">Помощник лидера (обязательно для заполнения)</div></label>
       <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>
-      <label><input type="text" name="names" class="name-input"><div class="label__text">Имена людей, через запятую</div></label>
+      <label><textarea type="text" name="names" class="name-input"></textarea><div class="label__text">Имена людей, через запятую</div></label>
       <label><input type="number" name="rareVisitors"><div class="label__text">Количество нецерковных людей (редко приходящие, если нет, то поставьте 0)</div></label>
       <label><input type="number" name="returningVisitors"><div class="label__text">Интересующиеся (возвратники, пришли 2+ раз)</div></label>
       <label><input type="number" name="newPeople"><div class="label__text">Количество новых людей (пришли первый раз)</div></label>
@@ -181,14 +193,8 @@
 
     <!-- === Евангелизационный проект === -->
     <div class="event-block" id="event-evangelism">
-      <label class="date-container">
-        <input type="date" name="date" class="event-date" required>
-        <span class="calendar-icon" onclick="this.previousElementSibling.showPicker()">
-          <img src="img/calendar.svg" alt="Календарь">
-        </span>
-        <div class="label__text">Дата</div>
-      </label>
       <label><input type="text" name="projectName"><div class="label__text">Название проекта (собор, альфа и тд)</div></label>
+      <label class="date-container"><input type="date" name="date" class="event-date" required><span class="calendar-icon" onclick="this.previousElementSibling.showPicker()"><img src="img/calendar.svg" alt="Календарь"></span><div class="label__text">Дата</div></label>
       <label><input type="text" name="topic"><div class="label__text">Тема</div></label>
       <label><textarea name="mainThought"></textarea><div class="label__text">Основная мысль, тезисы (3 предложения)</div></label>
       <label><input type="number" name="totalPeople"><div class="label__text">Общее количество людей</div></label>

@@ -190,11 +190,11 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             });
     });
 
-        // --- ПАРАЛЛЕЛЬНАЯ ОТПРАВКА В GOOGLE SHEETS ---
-    fetch("https://script.google.com/macros/s/AKfycby4niUfQ3OtOZ-5i_Dp5nxEKiriwfhGW0Sw8PQ6enO5SjCCmRB-3QgSEQhuFu5J3N4v/exec", {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
-        body: JSON.stringify(formData)
+      // ======================== GOOGLE SHEETS ========================
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbyo7JQqI7SJKU4AFDeCi80BmHr-7y8gVKFuuGovEKRvXaBxrS6E5xbTpj_ZG--5qXvQ/exec';
+    fetch(scriptURL, {
+        method: 'POST',
+        body: JSON.stringify(formData)  // без headers, чтобы обойти CORS
     }).catch(err => console.warn("Ошибка отправки в Google Sheets", err));
 
 });
