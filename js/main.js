@@ -191,7 +191,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     });
 
       // ======================== GOOGLE SHEETS ========================
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbyo7JQqI7SJKU4AFDeCi80BmHr-7y8gVKFuuGovEKRvXaBxrS6E5xbTpj_ZG--5qXvQ/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbwEGWZz6YO37lMPm6S3XKFnjVcKG-HTzC0Eh-eosaDmm8AsxzkZrI72A6GuyzjUDRXo/exec';
     fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify(formData)  // без headers, чтобы обойти CORS
