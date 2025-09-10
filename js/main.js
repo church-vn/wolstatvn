@@ -134,6 +134,12 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         if (!el.disabled) formData[el.name] = el.value.trim() || '—';
     });
 
+     // Добавляем тип события
+    formData.eventType = eventSelect.value; // машинное
+    formData.eventTypeText = eventSelect.options[eventSelect.selectedIndex].text; // русское название
+
+
+
     // --- ОТПРАВКА В TELEGRAM ---
     const telegramBotToken = '8450334689:AAEzBpiOP0fdGo7-yygz83M0tTcsUhXs0z0';
     const telegramChatIds = ['-1002763552668'];
@@ -190,12 +196,13 @@ document.getElementById('contactForm').addEventListener('submit', function(event
             });
     });
 
-      // ======================== GOOGLE SHEETS ========================
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbwEGWZz6YO37lMPm6S3XKFnjVcKG-HTzC0Eh-eosaDmm8AsxzkZrI72A6GuyzjUDRXo/exec';
+       // ======================== GOOGLE SHEETS ========================
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzm8zONYAwJWO54mbZq_ldLfdoSVFSoezJNDe7eJMtSF_HC5b3ber0AMHrBdzfW-vue/exec';
     fetch(scriptURL, {
         method: 'POST',
-        body: JSON.stringify(formData)  // без headers, чтобы обойти CORS
+        body: JSON.stringify(formData)  // теперь с eventType
     }).catch(err => console.warn("Ошибка отправки в Google Sheets", err));
+
 
 });
 
