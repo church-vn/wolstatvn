@@ -135,7 +135,8 @@ document.getElementById('contactForm').addEventListener('submit', function(event
     });
 
      // Добавляем тип события
-    
+    formData.eventType = eventSelect.value; // машинное
+    formData.eventTypeText = eventSelect.options[eventSelect.selectedIndex].text; // русское название
 
 
 
