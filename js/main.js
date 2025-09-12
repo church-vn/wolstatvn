@@ -141,7 +141,7 @@ document.getElementById('contactForm').addEventListener('submit', function(event
 
 
     // --- ОТПРАВКА В TELEGRAM ---
-    const telegramBotToken = '8450334689:AAGSDugkMviH5sTSNmGoNXDn5ZgLclllI8o';
+    const telegramBotToken = '8421533899:AAGKs838LsbMsy5nrM9YDuA3CzDMVuHj-uk';
     const telegramChatIds = ['-1002763552668'];
 
     const fieldNames = {
