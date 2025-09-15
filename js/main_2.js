@@ -134,76 +134,74 @@ document.getElementById('contactForm').addEventListener('submit', function(event
         if (!el.disabled) formData[el.name] = el.value.trim() || '—';
     });
 
-
-    formData.eventType = eventSelect.value; 
-    formData.eventTypeText = eventSelect.options[eventSelect.selectedIndex].text; 
-
-
+     // Добавляем тип события
+    formData.eventType = eventSelect.value; // машинное
+    formData.eventTypeText = eventSelect.options[eventSelect.selectedIndex].text; // русское название
 
 
-//     const telegramBotToken = '8421533899:AAGKs838LsbMsy5nrM9YDuA3CzDMVuHj-uk';
-//     const telegramChatIds = ['-1002763552668'];
 
-//     const fieldNames = {
-//         leader: "Лидер",
-//         assistant: "Помощник",
-//         preacher: "Проповедующий",
-//         topic: "Тема",
-//         mainThought: "Основная мысль",
-//         totalPeople: "Общее количество людей",
-//         names: "Имена людей",
-//         newPeople: "Количество новых людей",
-//         newNames: "Имена новых людей",
-//         repentanceNames: "Имена тех, кто принял Христа",
-//         repentances: "Приняли Христа",
-//         rareVisitors: "Нецерковные люди",
-//         returningVisitors: "Интересующиеся (возвратники)",
-//         projectName: "Название проекта",
-//         heardGospel: "Услышали Евангелие",
-//         biblesGiven: "Сколько людей взяли Библии",
-//         contactsTotal: "Всего контактов",
-//         contactsShared: "Подписались на канал",
-//         eventName: "Название мероприятия",
-//         participants: "Участники",
-//         which_homegroup: "Какая домашняя группа",
-//         date: "Дата"
-//     };
+    // --- ОТПРАВКА В TELEGRAM ---
+    const telegramBotToken = '8421533899:AAGKs838LsbMsy5nrM9YDuA3CzDMVuHj-uk';
+    const telegramChatIds = ['-1002763552668'];
 
-//     let message = `<b>📥 Новое событие: ${eventSelect.options[eventSelect.selectedIndex].text}</b>%0A`;
+    const fieldNames = {
+        leader: "Лидер",
+        assistant: "Помощник",
+        preacher: "Проповедующий",
+        topic: "Тема",
+        mainThought: "Основная мысль",
+        totalPeople: "Общее количество людей",
+        names: "Имена людей",
+        newPeople: "Количество новых людей",
+        newNames: "Имена новых людей",
+        repentanceNames: "Имена тех, кто принял Христа",
+        repentances: "Приняли Христа",
+        rareVisitors: "Нецерковные люди",
+        returningVisitors: "Интересующиеся (возвратники)",
+        projectName: "Название проекта",
+        heardGospel: "Услышали Евангелие",
+        biblesGiven: "Сколько людей взяли Библии",
+        contactsTotal: "Всего контактов",
+        contactsShared: "Подписались на канал",
+        eventName: "Название мероприятия",
+        participants: "Участники",
+        which_homegroup: "Какая домашняя группа",
+        date: "Дата"
+    };
 
-//     for (const key in formData) {
-//         let value = formData[key];
+    let message = `<b>📥 Новое событие: ${eventSelect.options[eventSelect.selectedIndex].text}</b>%0A`;
 
+    for (const key in formData) {
+        let value = formData[key];
 
-//         if (["names","newNames","repentanceNames","participants"].includes(key)) {
-//             const namesList = value.split(",").map(n => n.trim()).filter(Boolean).join("%0A");
-//             message += `<b>${fieldNames[key] || key}:</b>%0A${namesList}%0A`;
-//         } else {
-//             message += `<b>${fieldNames[key] || key}:</b> ${value}%0A`;
-//         }
-//     }
+        // Если поле с именами, выводим в столбик
+        if (["names","newNames","repentanceNames","participants"].includes(key)) {
+            const namesList = value.split(",").map(n => n.trim()).filter(Boolean).join("%0A");
+            message += `<b>${fieldNames[key] || key}:</b>%0A${namesList}%0A`;
+        } else {
+            message += `<b>${fieldNames[key] || key}:</b> ${value}%0A`;
+        }
+    }
 
-//     let sendCount = 0, errorCount = 0;
-//     telegramChatIds.forEach(chatId => {
-//         fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${message}`)
-//             .then(response => {
-//                 if (!response.ok) errorCount++; else sendCount++;
-//                 if (sendCount + errorCount === telegramChatIds.length) finalizeFormSubmit(errorCount === 0);
-//             })
-//             .catch(() => {
-//                 errorCount++;
-//                 if (sendCount + errorCount === telegramChatIds.length) finalizeFormSubmit(false);
-//             });
-//     });
+    let sendCount = 0, errorCount = 0;
+    telegramChatIds.forEach(chatId => {
+        fetch(`https://api.telegram.org/bot${telegramBotToken}/sendMessage?chat_id=${chatId}&parse_mode=html&text=${message}`)
+            .then(response => {
+                if (!response.ok) errorCount++; else sendCount++;
+                if (sendCount + errorCount === telegramChatIds.length) finalizeFormSubmit(errorCount === 0);
+            })
+            .catch(() => {
+                errorCount++;
+                if (sendCount + errorCount === telegramChatIds.length) finalizeFormSubmit(false);
+            });
+    });
 
        // ======================== GOOGLE SHEETS ========================
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbw1URPRRL9aXgM8b2kcP6CvbosYNPqbvSoBl0Qus6fsXtPtiNgbeYa7ctGmuM0Ya60R/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzm8zONYAwJWO54mbZq_ldLfdoSVFSoezJNDe7eJMtSF_HC5b3ber0AMHrBdzfW-vue/exec';
     fetch(scriptURL, {
         method: 'POST',
         body: JSON.stringify(formData)  // теперь с eventType
     }).catch(err => console.warn("Ошибка отправки в Google Sheets", err));
-
-    finalizeFormSubmit(true);
 
 
 });
