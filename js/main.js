@@ -62,7 +62,7 @@ function attachAutocomplete(input) {
             li.onclick = () => {
                 const parts = input.value.split(",");
                 parts[parts.length - 1] = " " + name;
-                input.value = parts.join(",").trim() + ", "; // во время ввода ставим запятую
+                input.value = parts.join(",").trim() + ", ";
                 suggestions.innerHTML = "";
                 input.focus();
             };
