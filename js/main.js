@@ -94,8 +94,17 @@ document.querySelectorAll(".name-input").forEach(input => attachAutocomplete(inp
 // ФОРМАТИРОВАНИЕ ТЕКСТА
 // ========================
 function capitalizeEachWord(str) {
-    return str.split(" ").filter(Boolean).map(w => w.charAt(0).toUpperCase() + w.slice(1).toLowerCase()).join(" ");
+    return str
+        .split(" ")
+        .filter(Boolean)
+        .map(word => word
+            .split("-")              // разбиваем по дефису
+            .map(part => part.charAt(0).toUpperCase() + part.slice(1).toLowerCase())
+            .join("-")               // собираем обратно с дефисом
+        )
+        .join(" ");
 }
+
 
 function capitalizeFirstWord(str) {
     if (!str) return "";
