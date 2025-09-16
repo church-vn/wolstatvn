@@ -62,10 +62,7 @@ function attachAutocomplete(input) {
             li.onclick = () => {
                 const parts = input.value.split(",");
                 parts[parts.length - 1] = " " + name;
-                input.value = parts
-                    .map(p => p.trim())
-                    .filter(Boolean)
-                    .join(", "); // без лишней запятой в конце
+                input.value = parts.join(",").trim() + ", "; // во время ввода ставим запятую
                 suggestions.innerHTML = "";
                 input.focus();
             };
@@ -78,6 +75,11 @@ function attachAutocomplete(input) {
         renderList(value);
     });
 
+
+    input.addEventListener("blur", () => {
+        input.value = input.value.replace(/,\s*$/, "");
+    });
+
     document.addEventListener("click", (e) => {
         if (!input.contains(e.target) && !suggestions.contains(e.target)) {
             suggestions.innerHTML = "";
@@ -85,8 +87,8 @@ function attachAutocomplete(input) {
     });
 }
 
-
 document.querySelectorAll(".name-input").forEach(input => attachAutocomplete(input));
+
 
 // ========================
 // ФОРМАТИРОВАНИЕ ТЕКСТА
