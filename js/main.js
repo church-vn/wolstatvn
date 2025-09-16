@@ -168,7 +168,7 @@ async function sendForm(form) {
     formData.eventType = eventSelect.value;
     formData.eventTypeText = eventSelect.options[eventSelect.selectedIndex].text;
 
-    const scriptURL = 'https://script.google.com/macros/s/AKfycbzJe26Tkobd3nUCDKRGeOUC0MvmtmCkBvLBGPpAr2X0bp1hCvJZ1JQtmj5ivSE8Aws8/exec';
+    const scriptURL = 'https://script.google.com/macros/s/AKfycbzUG7AYt05h1T9E9LSFon1Ri17ufTcwj8V9AgySeBSWR_YUYNPcFMwhkELEIlbsrGql/exec';
 
     showToast('⏳ Отправка данных...', false, 10000);
 
