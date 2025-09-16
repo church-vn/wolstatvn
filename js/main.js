@@ -62,7 +62,10 @@ function attachAutocomplete(input) {
             li.onclick = () => {
                 const parts = input.value.split(",");
                 parts[parts.length - 1] = " " + name;
-                input.value = parts.join(",").trim() + ", ";
+                input.value = parts
+                    .map(p => p.trim())
+                    .filter(Boolean)
+                    .join(", "); // без лишней запятой в конце
                 suggestions.innerHTML = "";
                 input.focus();
             };
@@ -81,6 +84,7 @@ function attachAutocomplete(input) {
         }
     });
 }
+
 
 document.querySelectorAll(".name-input").forEach(input => attachAutocomplete(input));
 
