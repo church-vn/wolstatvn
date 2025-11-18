@@ -351,7 +351,7 @@
 
 <!-- blocked screen -->
 <script>
-const CORRECT_CODE = "5279";
+const CORRECT_CODES = ["5279", "9186", "9876"]; // сюда добавляй все допустимые коды
 
 document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("passcode").addEventListener("keyup", (e) => {
@@ -361,15 +361,18 @@ document.getElementById("passcode").addEventListener("keyup", (e) => {
 function unlock() {
   const entered = document.getElementById("passcode").value.trim();
 
-  if (entered === CORRECT_CODE) {
+  if (CORRECT_CODES.includes(entered)) {
+    // Код правильный — скрываем экран блокировки
     document.getElementById("lockscreen").style.display = "none";
   } else {
+    // Неверный код — показываем ошибку
     const err = document.getElementById("error");
     err.style.display = "block";
     setTimeout(() => err.style.display = "none", 1500);
   }
 }
 </script>
+
 
 </body>
 </html>
