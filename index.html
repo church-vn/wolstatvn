@@ -351,27 +351,46 @@
 
 <!-- blocked screen -->
 <script>
-const CORRECT_CODES = ["5279", "9186", "9876"]; // сюда добавляй все допустимые коды
+// Хэши допустимых телефонов
+const HASHED_NUMBERS = [
+  "63f7865effadd8ee4f2e9da123a756917532db21b4b3920b5e4c309f3b9a9cf5", 
+  "6d6720352ebf13464e0f474f999296d6c248ad101f3463a9181a8e8d7595f41e",
+  "4515d293df4d5c2bc032cab6872c6dde6caee6581c93bfb0ae8da41cab46cd05",
+  "2cbacdc763d243b359e52541f7bdc47662cfa80a1a314d1383f5257c238859f6",
+  "24c1fafc34025e351d6c3636f74c034624c235683df875952143d1c1115fbe70"
+];
+
+// Функция для хэширования введённого номера
+async function hashNumber(number) {
+  const encoder = new TextEncoder();
+  const data = encoder.encode(number);
+  const hashBuffer = await crypto.subtle.digest("SHA-256", data);
+  const hashArray = Array.from(new Uint8Array(hashBuffer));
+  return hashArray.map(b => b.toString(16).padStart(2, "0")).join("");
+}
 
 document.getElementById("unlockBtn").addEventListener("click", unlock);
 document.getElementById("passcode").addEventListener("keyup", (e) => {
   if (e.key === "Enter") unlock();
 });
 
-function unlock() {
+async function unlock() {
   const entered = document.getElementById("passcode").value.trim();
+  const enteredHash = await hashNumber(entered);
 
-  if (CORRECT_CODES.includes(entered)) {
-    // Код правильный — скрываем экран блокировки
+  if (HASHED_NUMBERS.includes(enteredHash)) {
+    // Верный номер — скрываем экран блокировки
     document.getElementById("lockscreen").style.display = "none";
   } else {
-    // Неверный код — показываем ошибку
+    // Неверный номер — показываем ошибку
     const err = document.getElementById("error");
     err.style.display = "block";
     setTimeout(() => err.style.display = "none", 1500);
   }
 }
 </script>
+
+
 
 
 </body>
