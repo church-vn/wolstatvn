@@ -44,6 +44,16 @@
 
 
 <body>
+  <!-- blocked screen -->
+  <div id="lockscreen">
+  <div class="lockscreen-box">
+    <h2>Введите код доступа</h2>
+    <input type="password" id="passcode" maxlength="4" autofocus>
+    <button id="unlockBtn">Войти</button>
+    <p id="error" style="display:none;color:red;margin-top:10px;">Неверный код</p>
+  </div>
+</div>
+
 <header data-aos="fade-down">
   <h1>WOLSTAT — сбор данных и аналитика служений церкви Слово Жизни в Великом Новгороде</h1>
 </header>
@@ -338,5 +348,28 @@
 <script src="js/jquery-371min.js"></script>
 <!-- <script src="js/jquerymaskedinputmin.js"></script> -->
 <script src="js/main.js"></script>
+
+<!-- blocked screen -->
+<script>
+const CORRECT_CODE = "5279";
+
+document.getElementById("unlockBtn").addEventListener("click", unlock);
+document.getElementById("passcode").addEventListener("keyup", (e) => {
+  if (e.key === "Enter") unlock();
+});
+
+function unlock() {
+  const entered = document.getElementById("passcode").value.trim();
+
+  if (entered === CORRECT_CODE) {
+    document.getElementById("lockscreen").style.display = "none";
+  } else {
+    const err = document.getElementById("error");
+    err.style.display = "block";
+    setTimeout(() => err.style.display = "none", 1500);
+  }
+}
+</script>
+
 </body>
 </html>

@@ -1282,8 +1282,84 @@ input[type="date"]::-moz-calendar-picker-indicator {
 
 
 
+/* Блокировка экрана */
+#lockscreen {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 1); 
+  color: white;
+  z-index: 999999;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-family: 'Inter', sans-serif;
+  backdrop-filter: blur(6px); 
+}
+
+.lockscreen-box {
+  text-align: center;
+  background: linear-gradient(135deg, #7B3FBF, #5A2D91); 
+  padding: 40px 50px;
+  border-radius: 20px;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.4);
+  width: 320px;
+  max-width: 90%;
+  animation: glow 3s ease-in-out infinite;
+}
+
+.lockscreen-box h2 {
+  font-size: 1.8rem;
+  font-weight: 800;
+  margin-bottom: 20px;
+  color: #fff;
+  text-shadow: 0 2px 6px rgba(0,0,0,0.3);
+}
+
+#passcode {
+  font-size: 1.5rem;
+  padding: 12px 15px;
+  text-align: center;
+  width: 100%;
+  border-radius: 10px;
+  border: 1px solid #cfd0d3;
+  outline: none;
+  margin-top: 10px;
+  background: rgba(255, 255, 255, 0.05);
+  color: #fff;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 5px rgba(255,255,255,0.2);
+}
+
+#passcode:focus {
+  border-color: #fff;
+  box-shadow: 0 0 10px #7B3FBF;
+  background: rgba(255, 255, 255, 0.1);
+}
+
+#unlockBtn {
+  margin-top: 20px;
+  padding: 12px 25px;
+  font-size: 1rem;
+  border: none;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #a80000, #7B3FBF);
+  color: #fff;
+  cursor: pointer;
+  font-weight: 600;
+  box-shadow: 0 6px 20px rgba(0,0,0,0.4);
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+#unlockBtn:hover {
+  transform: scale(1.05);
+  background: linear-gradient(135deg, #7B3FBF, #a80000);
+}
 
 
+@keyframes glow {
+  0%, 100% { box-shadow: 0 0 20px rgba(123, 63, 191, 0.6); }
+  50% { box-shadow: 0 0 30px rgba(123, 63, 191, 0.9); }
+}
 
 
 
